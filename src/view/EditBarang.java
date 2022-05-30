@@ -12,8 +12,9 @@ import javax.swing.*;
  * @author Afrien
  */
 public class EditBarang extends JFrame{
+    String id;
     JLabel lbNama = new JLabel("Nama :");
-    JLabel lbMassa = new JLabel("Massa {gr} :");
+    JLabel lbMassa = new JLabel("Massa (gr) :");
     JLabel lbHarga = new JLabel("Harga Satuan :");
     JLabel lbBanyak = new JLabel("Banyak");
     
@@ -41,26 +42,50 @@ public class EditBarang extends JFrame{
         add(lbMassa);
         lbMassa.setBounds(30, 60, 90, 20);
         add(lbHarga);
-        lbHarga.setBounds(30, 80, 90, 20);
+        lbHarga.setBounds(30, 90, 90, 20);
         add(lbBanyak);
-        lbBanyak.setBounds(30, 100, 90, 20);
+        lbBanyak.setBounds(30, 120, 90, 20);
         
         add(tfNama);
         tfNama.setBounds(150, 30, 120, 20);
         add(tfMassa);
         tfMassa.setBounds(150, 60, 120, 20);
         add(tfHarga);
-        tfHarga.setBounds(150, 80, 120, 20);
+        tfHarga.setBounds(150, 90, 120, 20);
         add(tfBanyak);
-        tfHarga.setBounds(150, 100, 120, 20);
+        tfBanyak.setBounds(150, 120, 120, 20);
         
         add(btnTotal);;
-        btnTotal.setBounds(55, 120, 160, 20);
+        btnTotal.setBounds(30, 150, 100, 20);
         add(btnKembali);;
-        btnKembali.setBounds(30, 150, 90, 20);
+        btnKembali.setBounds(30, 180, 90, 20);
         add(btnEdit);;
-        btnEdit.setBounds(130, 150, 90, 20);
+        btnEdit.setBounds(130, 180, 90, 20);
         add(btnHapus);;
-        btnHapus.setBounds(240, 150, 90, 20);
+        btnHapus.setBounds(230, 180, 90, 20);
     }   
+
+    public String getBanyak() {
+        return tfBanyak.getText();
+    }
+
+    public String getHarga() {
+        return tfHarga.getText();
+    }
+    
+    public String getId(){
+        return this.id;
+    }
+    
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public String getNama() {
+        return tfNama.getText();
+    }
+
+    public String getMassa() {
+        return tfMassa.getText();
+    }
 }

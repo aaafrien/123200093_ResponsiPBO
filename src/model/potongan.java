@@ -10,5 +10,5 @@ package model;
  * @author Afrien
  */
 public interface potongan {
-    public double diskon(double massa, double harga, double banyak);
+    public double diskon(double harga, double banyak);
 }

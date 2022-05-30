@@ -13,7 +13,7 @@ import javax.swing.*;
  */
 public class DetailBarang extends JFrame {
     JLabel lbNama = new JLabel("Nama :");
-    JLabel lbMassa = new JLabel("Massa {gr} :");
+    JLabel lbMassa = new JLabel("Massa (gr) :");
     JLabel lbHarga = new JLabel("Harga Satuan :");
     JLabel lbTotal = new JLabel("Total Harga");
     
@@ -38,18 +38,18 @@ public class DetailBarang extends JFrame {
         add(lbMassa);
         lbMassa.setBounds(30, 60, 90, 20);
         add(lbHarga);
-        lbHarga.setBounds(30, 80, 90, 20);
+        lbHarga.setBounds(30, 90, 90, 20);
         add(lbTotal);
-        lbTotal.setBounds(30, 100, 90, 20);
+        lbTotal.setBounds(30, 120, 90, 20);
         
         add(tfNama);
         tfNama.setBounds(150, 30, 120, 20);
         add(tfMassa);
         tfMassa.setBounds(150, 60, 120, 20);
         add(tfHarga);
-        tfHarga.setBounds(150, 80, 120, 20);
+        tfHarga.setBounds(150, 90, 120, 20);
         add(tfTotal);
-        tfHarga.setBounds(150, 100, 120, 20);
+        tfTotal.setBounds(150, 120, 120, 20);
 
         add(btnKembali);;
         btnKembali.setBounds(30, 150, 90, 20);

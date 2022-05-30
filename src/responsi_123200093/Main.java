@@ -22,8 +22,6 @@ public class Main {
         // TODO code application logic here
         MainMenu mainMenu = new MainMenu();
         BarangModel barangModel = new BarangModel();
-        LihatBarang lihatBarang = new LihatBarang();
-//        EditBarang editBarang = new EditBarang();
         BarangController barangController = new BarangController(barangModel, mainMenu);
     }
 }

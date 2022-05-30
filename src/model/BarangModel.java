@@ -31,13 +31,14 @@ public class BarangModel implements potongan {
         }
     }
     
-    public double diskon(double massa, double harga, double banyak){
-        if(massa>=12) {
-            harga = ((5/100)*(banyak*harga));
-        } if(massa>=20) {
-            harga = ((10/100)*(banyak*harga));
-        } if(massa>=144) {
-            harga = ((25/100)*(banyak*harga));
+    @Override
+    public double diskon(double harga, double banyak){
+        if(banyak>=12) {
+            return 0.95*banyak*harga;
+        } if(banyak>=20) {
+            return 0.90*banyak*harga;
+        } if(banyak>=144) {
+            return 0.75*banyak*harga;
         }
         return(harga);
     }
@@ -85,7 +86,7 @@ public class BarangModel implements potongan {
             if(e.getMessage().equals("duplicate")) {
                 JOptionPane.showMessageDialog(null, "Barang sudah ada");
             } else {
-                JOptionPane.showMessageDialog(null, "Data Gagal ditambahkan");
+                JOptionPane.showMessageDialog(null, "Barang Gagal diinput");
             }
         }
     }
@@ -93,16 +94,17 @@ public class BarangModel implements potongan {
     public String[][] lihatBarang() {
         try{
             int jmlData = 0;
-            String data[][] = new String[getDataBarang()][3];
+            String data[][] = new String[getDataBarang()][4];
             
             String query = "SELECT * FROM `barang`";
             
             stat = conn.createStatement();
             ResultSet resultSet = stat.executeQuery(query);
             while(resultSet.next()) {
-                data[jmlData][0] = resultSet.getString("nama");
-                data[jmlData][1] = resultSet.getString("massa");                
-                data[jmlData][2] = resultSet.getString("harga");
+                data[jmlData][0] = resultSet.getString("id");
+                data[jmlData][1] = resultSet.getString("nama");
+                data[jmlData][2] = resultSet.getString("massa");                
+                data[jmlData][3] = resultSet.getString("harga");
                 jmlData++;
             }
             stat.close();
@@ -113,29 +115,70 @@ public class BarangModel implements potongan {
         }
     }
     
-    public void editBarang(String nama, String massa, String harga, String banyak) {
+    public void editBarang(String harga, String banyak) {
         try{
-            double nMassa, nHarga, nByk, total;
-            nMassa = Double.parseDouble(massa);
+            double nHarga, nByk, total;
             nHarga = Double.parseDouble(harga);
             nByk = Double.parseDouble(banyak);
             
-            total = diskon(nMassa, nHarga, nByk);
-
-            String query = "UPDATE `barang` " + "SET " + "`massa`=" + massa + ","
-                           + "`harga`=" + harga + "'";
-
-            stat = conn.createStatement();
-            stat.executeUpdate(query);
+            total = diskon(nHarga, nByk);
             
-            JOptionPane.showMessageDialog(null, "Data Berhasil diupdate");
+            JOptionPane.showMessageDialog(null, "Barang Berhasil diedit");
         } catch(Exception e) {
             System.out.println(e.getMessage());
-            if(e.getMessage().equals("exceed")) {
-                JOptionPane.showMessageDialog(null, "Rating tidak boleh melebihi 5.0");
-            } else {
-                JOptionPane.showMessageDialog(null, "Data Gagal diupdate");
+            JOptionPane.showMessageDialog(null, "Barang Gagal diedit");
+        }
+    }
+    
+    public String[] getDetail(String id) {
+        try {
+            String data[] = new String[4];
+            
+            String query = "SELECT * FROM `barang` WHERE `id`=" + id;
+            
+            stat = conn.createStatement();
+            ResultSet resultSet = stat.executeQuery(query);
+            while(resultSet.next()) {
+                data[0] = resultSet.getString("id");
+                data[1] = resultSet.getString("nama");
+                data[2] = resultSet.getString("massa");                
+                data[3] = resultSet.getString("harga");
+
             }
+            stat.close();
+            return data;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
+    public void hapusBarang(String id) {
+        try {
+            String query = "DELETE FROM `barang` WHERE `id`=" + id;
+        
+            stat = conn.createStatement();
+            stat.executeUpdate(query);
+            JOptionPane.showMessageDialog(null, "Barang Berhasil dihapus");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Barang Gagal dihapus");
+        }
+    }
+    
+    public void editDetail(String nama, String massa, String harga, String id) {
+        try {
+            String query = "UPDATE `barang` SET "
+                    + "`nama`='" + nama + "',"
+                    + "`massa`=" + massa + ","
+                    + "`harga`=" + harga 
+                    + " WHERE id=" + id;
+            
+            stat = conn.createStatement();
+            stat.executeUpdate(query);
+            JOptionPane.showMessageDialog(null, "Barang Berhasil diupdate");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Barang Gagal diupdate");
         }
     }
 }

@@ -7,7 +7,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.TableModel;
 import model.*;
 import view.*;
 
@@ -30,48 +34,22 @@ public class BarangController {
         
         mainMenu.btnTambah.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                mainMenu.setVisible(false);
+                mainMenu.dispose();
                 InputBarang inputBarang = new InputBarang();
-                inputBarang.setVisible(true);
-                mainMenu.setVisible(false);
+                InputController inputController = new InputController(inputBarang, barangModel);  
+                System.out.println("tesst");
             }
         });
         
         mainMenu.btnLihat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 LihatBarang lihatBarang = new LihatBarang();
-                lihatBarang.setVisible(true);
-                mainMenu.setVisible(false);
-            }
-        });
-        
-        inputBarang.btnSubmit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                System.out.println("test");
-                String nama = inputBarang.getNama();
-                String massa = inputBarang.getMassa();
-                String harga = inputBarang.getHarga();
-                barangModel.tambahBarang(nama, massa, harga);
-                String dataBarang[][] = barangModel.lihatBarang();
-                lihatBarang.tabel.setModel((new JTable(dataBarang, title)).getModel());
-            }
-        });
-        
-        inputBarang.btnReset.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                inputBarang.setNama();
-                inputBarang.setMassa();
-                inputBarang.setHarga();
-            }
-        });
-        
-        inputBarang.btnKembali.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.setVisible(true);
-                inputBarang.setVisible(false);
+                BarangModel barangModel = new BarangModel();
+                mainMenu.dispose();
+                
+                LihatController lihatController = new LihatController(lihatBarang, barangModel);
+               
             }
         });
     }
-
 }
