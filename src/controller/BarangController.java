@@ -7,6 +7,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JTable;
 import model.*;
 import view.*;
 
@@ -17,13 +18,15 @@ import view.*;
 public class BarangController {
     BarangModel barangModel;
     MainMenu mainMenu;
-//    InputBarang inputBarang;
-//    LihatBarang lihatBarang;
-//    DetailBarang detailBarang;
+    InputBarang inputBarang;
+    LihatBarang lihatBarang;
+    public Object title[] = {"ID", "Nama Barang", "Massa", "Harga"};
     
     public BarangController(BarangModel barangModel, MainMenu mainMenu) {
         this.barangModel = barangModel;
         this.mainMenu = mainMenu;
+        this.inputBarang = inputBarang;
+        this.lihatBarang = lihatBarang;
         
         mainMenu.btnTambah.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -39,6 +42,34 @@ public class BarangController {
                 LihatBarang lihatBarang = new LihatBarang();
                 lihatBarang.setVisible(true);
                 mainMenu.setVisible(false);
+            }
+        });
+        
+        inputBarang.btnSubmit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                System.out.println("test");
+                String nama = inputBarang.getNama();
+                String massa = inputBarang.getMassa();
+                String harga = inputBarang.getHarga();
+                barangModel.tambahBarang(nama, massa, harga);
+                String dataBarang[][] = barangModel.lihatBarang();
+                lihatBarang.tabel.setModel((new JTable(dataBarang, title)).getModel());
+            }
+        });
+        
+        inputBarang.btnReset.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                inputBarang.setNama();
+                inputBarang.setMassa();
+                inputBarang.setHarga();
+            }
+        });
+        
+        inputBarang.btnKembali.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.setVisible(true);
+                inputBarang.setVisible(false);
             }
         });
     }
