@@ -5,7 +5,7 @@
  */
 package responsi_123200093;
 
-import controller.BarangController;
+import controller.*;
 import model.BarangModel;
 import view.*;
 
@@ -23,6 +23,9 @@ public class Main {
         MainMenu mainMenu = new MainMenu();
         BarangModel barangModel = new BarangModel();
         BarangController barangController = new BarangController(barangModel, mainMenu);
+        InputBarang inputBarang = new InputBarang();
+        LihatBarang lihatBarang = new LihatBarang();
+        DetailBarang detailBarang = new DetailBarang();
+        InputController inputController = new InputController(barangModel, inputBarang, lihatBarang);
     }
-    
 }

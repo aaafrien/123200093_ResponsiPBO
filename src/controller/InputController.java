@@ -28,6 +28,7 @@ public class InputController {
         
         inputBarang.btnSubmit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                System.out.println("test");
                 String nama = inputBarang.getNama();
                 String massa = inputBarang.getMassa();
                 String harga = inputBarang.getHarga();

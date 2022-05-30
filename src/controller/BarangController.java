@@ -25,7 +25,6 @@ public class BarangController {
         this.barangModel = barangModel;
         this.mainMenu = mainMenu;
         
-        
         mainMenu.btnTambah.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 mainMenu.setVisible(false);
