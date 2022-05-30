@@ -17,15 +17,21 @@ import view.*;
 public class BarangController {
     BarangModel barangModel;
     MainMenu mainMenu;
+//    InputBarang inputBarang;
+//    LihatBarang lihatBarang;
+//    DetailBarang detailBarang;
     
     public BarangController(BarangModel barangModel, MainMenu mainMenu) {
         this.barangModel = barangModel;
         this.mainMenu = mainMenu;
         
+        
         mainMenu.btnTambah.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                mainMenu.setVisible(false);
                 InputBarang inputBarang = new InputBarang();
                 inputBarang.setVisible(true);
+                mainMenu.setVisible(false);
             }
         });
         
@@ -33,6 +39,7 @@ public class BarangController {
             public void actionPerformed(ActionEvent arg0) {
                 LihatBarang lihatBarang = new LihatBarang();
                 lihatBarang.setVisible(true);
+                mainMenu.setVisible(false);
             }
         });
     }

@@ -21,11 +21,8 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         MainMenu mainMenu = new MainMenu();
-//        InputBarang inputBarang = new InputBarang();
-//        EditBarang editBarang = new EditBarang();
-//        DetailBarang detailBarang = new DetailBarang();
         BarangModel barangModel = new BarangModel();
-        BarangController barangController = new BarangController();
+        BarangController barangController = new BarangController(barangModel, mainMenu);
     }
     
 }
