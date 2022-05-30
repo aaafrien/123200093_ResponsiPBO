@@ -14,7 +14,7 @@ import javax.swing.*;
 public class InputBarang extends JFrame {
     JLabel lbInput = new JLabel("Input Barang");;
     JLabel lbNama = new JLabel("Nama");
-    JLabel lbMassa = new JLabel("Massa {gr}");
+    JLabel lbMassa = new JLabel("Massa (gr)");
     JLabel lbHarga = new JLabel("Harga Satuan");
     
     public JTextField tfNama = new JTextField();
