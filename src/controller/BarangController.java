@@ -5,13 +5,7 @@
  */
 package controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.TableModel;
+import java.awt.event.*;
 import model.*;
 import view.*;
 
@@ -22,22 +16,17 @@ import view.*;
 public class BarangController {
     BarangModel barangModel;
     MainMenu mainMenu;
-    InputBarang inputBarang;
-    LihatBarang lihatBarang;
     public Object title[] = {"ID", "Nama Barang", "Massa", "Harga"};
     
     public BarangController(BarangModel barangModel, MainMenu mainMenu) {
         this.barangModel = barangModel;
         this.mainMenu = mainMenu;
-        this.inputBarang = inputBarang;
-        this.lihatBarang = lihatBarang;
         
         mainMenu.btnTambah.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 mainMenu.dispose();
                 InputBarang inputBarang = new InputBarang();
                 InputController inputController = new InputController(inputBarang, barangModel);  
-                System.out.println("tesst");
             }
         });
         

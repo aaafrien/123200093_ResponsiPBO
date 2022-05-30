@@ -55,13 +55,13 @@ public class EditBarang extends JFrame{
         add(tfBanyak);
         tfBanyak.setBounds(150, 120, 120, 20);
         
-        add(btnTotal);;
+        add(btnTotal);
         btnTotal.setBounds(30, 150, 100, 20);
-        add(btnKembali);;
+        add(btnKembali);
         btnKembali.setBounds(30, 180, 90, 20);
-        add(btnEdit);;
+        add(btnEdit);
         btnEdit.setBounds(130, 180, 90, 20);
-        add(btnHapus);;
+        add(btnHapus);
         btnHapus.setBounds(230, 180, 90, 20);
     }   
 

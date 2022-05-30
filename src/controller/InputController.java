@@ -5,8 +5,7 @@
  */
 package controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import model.BarangModel;
 import view.*;
 
@@ -23,29 +22,32 @@ public class InputController {
         this.barangModel = barangModel;
         
         inputBarang.btnSubmit.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent arg0) {
-                        String nama = inputBarang.getNama();
-                        String massa = inputBarang.getMassa();
-                        String harga = inputBarang.getHarga();
-                        barangModel.tambahBarang(nama, massa, harga);
-                    }
-                });
-                
-                inputBarang.btnReset.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent arg0) {
-                        inputBarang.setNama();
-                        inputBarang.setMassa();
-                        inputBarang.setHarga();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                String nama = inputBarang.getNama();
+                String massa = inputBarang.getMassa();
+                String harga = inputBarang.getHarga();
+                barangModel.tambahBarang(nama, massa, harga);
+            }
+        });
+        
+        inputBarang.btnReset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                inputBarang.setNama();
+                inputBarang.setMassa();
+                inputBarang.setHarga();
+            }
+        });
 
-                inputBarang.btnKembali.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent arg0) {
-                        MainMenu mainMenu = new MainMenu();
-                        BarangModel barangModel = new BarangModel();
-                        BarangController barangController = new BarangController(barangModel, mainMenu);
-                        inputBarang.dispose();
-                    }
-                });
+        inputBarang.btnKembali.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                MainMenu mainMenu = new MainMenu();
+                BarangModel barangModel = new BarangModel();
+                BarangController barangController = new BarangController(barangModel, mainMenu);
+                inputBarang.dispose();
+            }
+        });
     }
 }

@@ -51,7 +51,7 @@ public class DetailBarang extends JFrame {
         add(lbTotalnya);
         lbTotalnya.setBounds(150, 120, 120, 20);
 
-        add(btnKembali);;
+        add(btnKembali);
         btnKembali.setBounds(30, 150, 90, 20);
     }
 }

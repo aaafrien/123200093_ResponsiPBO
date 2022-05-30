@@ -8,9 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.BarangModel;
-import view.DetailBarang;
-import view.EditBarang;
-import view.LihatBarang;
+import view.*;
 
 /**
  *

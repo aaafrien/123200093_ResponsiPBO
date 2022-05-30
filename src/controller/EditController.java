@@ -8,9 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.BarangModel;
-import view.DetailBarang;
-import view.EditBarang;
-import view.LihatBarang;
+import view.*;
 
 /**
  *
@@ -28,7 +26,6 @@ public class EditController {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 String id = editBarang.getId();
-                System.out.println(id);
                 double harga = Double.parseDouble(editBarang.getHarga());
                 double banyak = Double.parseDouble(editBarang.getBanyak());
                 
@@ -36,7 +33,6 @@ public class EditController {
                 
                 DetailBarang detailBarang = new DetailBarang();
                 DetailController detailController = new DetailController(detailBarang, barangModel, id, hasil);
-                
                 
                 editBarang.dispose();
             }
