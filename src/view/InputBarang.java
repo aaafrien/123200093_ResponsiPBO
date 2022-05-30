@@ -39,22 +39,46 @@ public class InputBarang extends JFrame {
         add(lbNama);
         lbNama.setBounds(30, 60, 90, 20);
         add(lbMassa);
-        lbMassa.setBounds(30, 80, 90, 20);
+        lbMassa.setBounds(30, 90, 90, 20);
         add(lbHarga);
-        lbHarga.setBounds(30, 100, 90, 20);
+        lbHarga.setBounds(30, 120, 90, 20);
         
         add(tfNama);
         tfNama.setBounds(150, 60, 120, 20);
         add(tfMassa);
-        tfMassa.setBounds(150, 80, 120, 20);
+        tfMassa.setBounds(150, 90, 120, 20);
         add(tfHarga);
-        tfHarga.setBounds(150, 100, 120, 20);
+        tfHarga.setBounds(150, 120, 120, 20);
         
         add(btnSubmit);;
-        btnSubmit.setBounds(30, 120, 160, 20);
+        btnSubmit.setBounds(30, 160, 90, 20);
         add(btnReset);;
-        btnReset.setBounds(200, 120, 160, 20);
+        btnReset.setBounds(130, 160, 90, 20);
         add(btnKembali);;
-        btnKembali.setBounds(30, 130, 340, 20);
+        btnKembali.setBounds(30, 190, 90, 20);
+    }
+
+    public String getNama() {
+        return tfNama.getText();
+    }
+
+    public String getMassa() {
+        return tfMassa.getText();
+    }
+
+    public String getHarga() {
+        return tfHarga.getText();
+    }
+
+    public void setNama() {
+        tfNama.setText("");
+    }
+
+    public void setMassa() {
+        tfMassa.setText("");
+    }
+
+    public void setHarga() {
+        tfHarga.setText("");
     }
 }

@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Afrien
  */
-public class BarangModel {
+public class BarangModel implements potongan {
     String DBurl = "jdbc:mysql://localhost/barang";
     String DBuname = "root";
     String DBpw = "";
