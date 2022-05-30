@@ -27,10 +27,10 @@ public class DetailController {
         String[] data = new String[4];
         data = barangModel.getDetail(id);
         if(!data[0].isEmpty()){           
-            detailBarang.tfNama.setText(data[1]);
-            detailBarang.tfMassa.setText(data[2]);
-            detailBarang.tfHarga.setText(data[3]);
-            detailBarang.tfTotal.setText(String.format("%.2f", hasil));
+            detailBarang.lbNamanya.setText(data[1]);
+            detailBarang.lbMassanya.setText(data[2]);
+            detailBarang.lbHarganya.setText(data[3]);
+            detailBarang.lbTotalnya.setText(String.format("%.2f", hasil));
         }
         
         detailBarang.btnKembali.addActionListener(new ActionListener() {

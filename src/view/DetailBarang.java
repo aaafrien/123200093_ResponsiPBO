@@ -15,12 +15,12 @@ public class DetailBarang extends JFrame {
     JLabel lbNama = new JLabel("Nama :");
     JLabel lbMassa = new JLabel("Massa (gr) :");
     JLabel lbHarga = new JLabel("Harga Satuan :");
-    JLabel lbTotal = new JLabel("Total Harga");
+    JLabel lbTotal = new JLabel("Total Harga :");
     
-    public JTextField tfNama = new JTextField();
-    public JTextField tfMassa = new JTextField();
-    public JTextField tfHarga = new JTextField();
-    public JTextField tfTotal = new JTextField();
+    public JLabel lbNamanya = new JLabel();
+    public JLabel lbMassanya = new JLabel();
+    public JLabel lbHarganya = new JLabel();
+    public JLabel lbTotalnya = new JLabel();
     
     public JButton btnKembali = new JButton("Kembali");
     
@@ -42,14 +42,14 @@ public class DetailBarang extends JFrame {
         add(lbTotal);
         lbTotal.setBounds(30, 120, 90, 20);
         
-        add(tfNama);
-        tfNama.setBounds(150, 30, 120, 20);
-        add(tfMassa);
-        tfMassa.setBounds(150, 60, 120, 20);
-        add(tfHarga);
-        tfHarga.setBounds(150, 90, 120, 20);
-        add(tfTotal);
-        tfTotal.setBounds(150, 120, 120, 20);
+        add(lbNamanya);
+        lbNamanya.setBounds(150, 30, 120, 20);
+        add(lbMassanya);
+        lbMassanya.setBounds(150, 60, 120, 20);
+        add(lbHarganya);
+        lbHarganya.setBounds(150, 90, 120, 20);
+        add(lbTotalnya);
+        lbTotalnya.setBounds(150, 120, 120, 20);
 
         add(btnKembali);;
         btnKembali.setBounds(30, 150, 90, 20);
